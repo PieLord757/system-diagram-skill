@@ -16,17 +16,36 @@ This picture is the worked example in [`examples/url-shortener`](examples/url-sh
 
 It can also coach: you draw, and the agent feeds you the next piece and critiques your board.
 
-## Install as a Claude Code skill
+## Quick start
 
-```bash
-git clone https://github.com/PieLord757/system-diagram-skill.git
-```
+1. Install it as a Claude Code skill:
 
-```bash
-mkdir -p ~/.claude/skills && cp -R system-diagram-skill/skills/system-diagram ~/.claude/skills/
-```
+   ```bash
+   git clone https://github.com/PieLord757/system-diagram-skill.git
+   ```
 
-Then ask for it in a project, for example: "Draw the system design of our checkout flow on Excalidraw and grill me on it."
+   ```bash
+   mkdir -p ~/.claude/skills && cp -R system-diagram-skill/skills/system-diagram ~/.claude/skills/
+   ```
+
+2. Open Claude Code in the project you want explained, and ask:
+
+   > Draw the system design of our checkout flow on Excalidraw and grill me on it.
+
+   To draw it yourself with coaching, ask: "Help me draw how our checkout flow works. I'll hold the pen."
+
+3. Drag the finished `.excalidraw` file onto [excalidraw.com](https://excalidraw.com) to open and edit it.
+
+## What happens when you run it
+
+1. The agent reads the code and writes the ledger.
+2. It writes a spoken walk of about 150 words around one concrete example and shows it to you.
+3. It draws one stretch at a time, rendering each and fixing what it sees.
+4. `check_scene.py` must report 0 errors: arrows attached, text legible, no card-style boards, every citation found.
+5. It writes the study guide and the likely questions.
+6. It hands everything over, says what it could not establish, and offers the grill.
+
+Files for a diagram go in `docs/architecture/` in your project.
 
 ## Requirements
 
